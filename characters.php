@@ -14,7 +14,12 @@ if(isset($_GET["page"])){
 }else{
     echo "no llego GET page";
 }*/
+
 $characters = json_decode(file_get_contents($_GET['data']), true);
+$cadena = $_GET['data'];
+$rr = $cadena[strlen($cadena)-1];
+
+
 //$characters = json_decode(file_get_contents('https://rickandmortyapi.com/api/character?page=3'), true);
 /*
 foreach($characters as $key2 => $value){
@@ -49,7 +54,14 @@ foreach($characters as $key2 => $value){
             <!--<h1>Total de personajes son <?php echo $interno  ?> </h1>-->
         <?php } ?>
         <?php  if($keyinfo == 'pages') {?>
-            <h1>PAGES = <?php echo $interno ; ?> </h1>
+            <h1>PAGES = <?php if($rr >1){
+                            echo $rr;
+                        }else{
+                            echo "1";
+                        }?> de 
+                
+                        <?php echo $interno ; ?>
+            </h1>
         <?php } ?>
         <div class=" container ">
         <?php  if($keyinfo == 'next') {?>
