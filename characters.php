@@ -45,7 +45,7 @@ foreach($characters as $key2 => $value){
 
 //echo "<hr>"
 ?>
-<div class="modal" id="modal">
+    <div class="modal" id="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
@@ -66,7 +66,7 @@ foreach($characters as $key2 => $value){
 <div class="container">
 
 <?php foreach($characters as $key2 => $value){
- if($key2 == 'info' ){ 
+if($key2 == 'info' ){ 
     foreach($value as $keyinfo => $interno){?>    
         <?php  if($keyinfo == 'count') {?>
             <!--<h1>Total de personajes son <?php echo $interno  ?> </h1>-->
@@ -108,10 +108,10 @@ foreach($characters as $key2 => $results){
         // echo $keyinfo;
             foreach($results_character as $key3 => $datos){
                 
-                if($key3 == 'id'){                
+                if($key3 == 'url'){                
                     // echo  $datos;
-                     $id = $datos;
-             }
+                    $url = $datos;
+                }
                 if($key3 == 'name'){                
                        // echo  $datos;
                         $nombre = $datos;
@@ -121,8 +121,8 @@ foreach($characters as $key2 => $results){
                 switch($key3){
                     case 'image':
                         ?>
+                        <a onclick="showCharacter('<?php echo $url ?>')">
                     <img src="<?php echo $datos ?>" class="" id="imagen">
-                    <button onclick="showCharacter('<?php echo $id ?>')"><?php echo $nombre ?></button>
                     <?php
                         break;
                 }
