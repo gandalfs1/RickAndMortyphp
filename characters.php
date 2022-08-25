@@ -40,48 +40,66 @@ foreach($characters as $key2 => $value){
 
 //echo "<hr>"
 ?>
+<div class="container">
 
-<h1>CHARACTES</h1>
 <?php foreach($characters as $key2 => $value){
  if($key2 == 'info' ){ 
     foreach($value as $keyinfo => $interno){?>    
         <?php  if($keyinfo == 'count') {?>
-            <h1>Total de personajes son <?php echo $interno  ?> </h1>
+            <!--<h1>Total de personajes son <?php echo $interno  ?> </h1>-->
         <?php } ?>
         <?php  if($keyinfo == 'pages') {?>
-            <h1>Total de paginas son <?php echo $interno ; ?> </h1>
+            <h1>PAGES = <?php echo $interno ; ?> </h1>
         <?php } ?>
+        <div class=" container ">
         <?php  if($keyinfo == 'next') {?>
-            <h1>next <?php echo $interno ?> </h1>
-            <a class="fs-3 text" aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a>
+            <div class="col-sm-4"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a></div>
+            
         <?php } ?>
         <?php  if($keyinfo == 'prev') {
             if($interno) {?>
-            <h1>prev<?php echo $interno  ?> </h1>
-            <a class="fs-3 text" aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a>
+            <div class="col-sm-4"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a></div>
+            
         <?php }
     } ?>
+    </div>
     <?php }
  }
 } ?>
 
 <?php 
-
+  echo "<hr>";
 foreach($characters as $key2 => $results){
    // echo json_encode($value);
- if($key2 == 'results' ){ 
-    foreach($results as $keyinfo => $results_character){
-        foreach($results_character as $key3){
-            echo json_encode($key3);
-            echo "<br>";
+    if($key2 == 'results' ){ 
+        foreach($results as $keyinfo => $results_character){
+        // echo $keyinfo;
+            foreach($results_character as $key3 => $datos){
+
+                switch($key3){
+                    case 'image':
+                        ?>
+                    <img src="<?php echo $datos ?>">
+                    <?php
+                        break;
+                }
+              //  echo json_encode($key3);
+               // echo json_encode($datos);
+                // if($key3 == 'origin'){                
+                //     foreach($datos as $datos_origin){
+                //         echo "<br>";
+                //         echo json_encode($key3." ".$datos_origin);
+                //     }
+                // }
+                
+            }
+            
+        // echo json_encode($interno);
+        //echo $key2;
         }
-        echo "<hr>";
-       // echo json_encode($interno);
-       //echo $key2;
     }
- }
 } 
 
 ?>
-
+</div>
 <?php require_once('footer.php') ?>
