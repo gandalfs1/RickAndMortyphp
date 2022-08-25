@@ -78,20 +78,32 @@ foreach($characters as $key2 => $value){
     <?php }
  }
 } ?>
-
+ 
 <?php 
   echo "<hr>";
 foreach($characters as $key2 => $results){
    // echo json_encode($value);
     if($key2 == 'results' ){ 
         foreach($results as $keyinfo => $results_character){
+            // se recorre para todos los personajes
         // echo $keyinfo;
             foreach($results_character as $key3 => $datos){
-
+                
+                if($key3 == 'id'){                
+                    // echo  $datos;
+                     $id = $datos;
+             }
+                if($key3 == 'name'){                
+                       // echo  $datos;
+                        $nombre = $datos;
+                }
+                
+                    //se recorre para un solo personaje
                 switch($key3){
                     case 'image':
                         ?>
                     <img src="<?php echo $datos ?>">
+                    <button  onclick="myDemo('<?php echo $id ?>')"><?php echo $nombre ?></button>
                     <?php
                         break;
                 }
@@ -114,4 +126,15 @@ foreach($characters as $key2 => $results){
 
 ?>
 </div>
+<script >
+       
+       function myDemo(nombre){
+        console.log(nombre)
+        alert(nombre)
+       }
+
+      
+       
+
+        </script>
 <?php require_once('footer.php') ?>
