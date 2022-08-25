@@ -55,10 +55,12 @@ foreach($characters as $key2 => $value){
             <h1>next <?php echo $interno ?> </h1>
             <a class="fs-3 text" aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a>
         <?php } ?>
-        <?php  if($keyinfo == 'prev') {?>
+        <?php  if($keyinfo == 'prev') {
+            if($interno) {?>
             <h1>prev<?php echo $interno  ?> </h1>
             <a class="fs-3 text" aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a>
-        <?php } ?>
+        <?php }
+    } ?>
     <?php }
  }
 } ?>
