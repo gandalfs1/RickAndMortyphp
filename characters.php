@@ -45,6 +45,24 @@ foreach($characters as $key2 => $value){
 
 //echo "<hr>"
 ?>
+<div class="modal" id="modal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Registrar Producto</p>
+                <button class="delete" aria-label="close" onclick="closeCharacter()"></button>
+            </header>
+            <section class="modal-card-body">
+
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-success">Guardar</button>
+                </form>
+                </form>
+                </form>
+            </footer>
+        </div>
+    </div>
 <div class="container">
 
 <?php foreach($characters as $key2 => $value){
@@ -79,6 +97,7 @@ foreach($characters as $key2 => $value){
  }
 } ?>
  
+    
 <?php 
   echo "<hr>";
 foreach($characters as $key2 => $results){
@@ -102,8 +121,8 @@ foreach($characters as $key2 => $results){
                 switch($key3){
                     case 'image':
                         ?>
-                    <img src="<?php echo $datos ?>">
-                    <button  onclick="myDemo('<?php echo $id ?>')"><?php echo $nombre ?></button>
+                    <img src="<?php echo $datos ?>" class="" id="imagen">
+                    <button onclick="showCharacter('<?php echo $id ?>')"><?php echo $nombre ?></button>
                     <?php
                         break;
                 }
@@ -126,14 +145,22 @@ foreach($characters as $key2 => $results){
 
 ?>
 </div>
+
+   
 <script >
-       
-       function myDemo(nombre){
+       function showCharacter(nombre){
         console.log(nombre)
-        alert(nombre)
+        //alert(nombre)
+        const modal = document.getElementById('modal')
+        modal.classList.toggle('is-active')
        }
 
-      
+       function closeCharacter(){
+        const modal = document.getElementById('modal')
+         modal.classList.toggle('is-active')
+       }
+     
+
        
 
         </script>
