@@ -65,4 +65,23 @@ foreach($characters as $key2 => $value){
  }
 } ?>
 
+<?php 
+
+foreach($characters as $key2 => $results){
+   // echo json_encode($value);
+ if($key2 == 'results' ){ 
+    foreach($results as $keyinfo => $results_character){
+        foreach($results_character as $key3){
+            echo json_encode($key3);
+            echo "<br>";
+        }
+        echo "<hr>";
+       // echo json_encode($interno);
+       //echo $key2;
+    }
+ }
+} 
+
+?>
+
 <?php require_once('footer.php') ?>
