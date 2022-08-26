@@ -62,51 +62,63 @@ foreach($characters as $key2 => $value){
             </footer>
         </div>
     </div>
-<div class="container">
+<div class="container ">   
 
 <?php foreach($characters as $key2 => $value){
 if($key2 == 'info' ){ 
-    foreach($value as $keyinfo => $interno){?>    
-        <?php  if($keyinfo == 'count') {?>
-            <!--<h1>Total de personajes son <?php echo $interno  ?> </h1>-->
-        <?php } ?>
-        <?php  if($keyinfo == 'pages') {
-            $cadena = $_GET['data'];
-            $rr = $cadena[strlen($cadena)-1];
+    foreach($value as $keyinfo => $interno){  
+        switch($keyinfo){
+                    case 'count':
+                        $count = $interno;
+                    break;
+                    case 'pages':
+                        $pages = $interno;
+                     break;
+                    case 'next':
+                        $next = $interno;
+                    break;
+                    case 'prev':
+                        $prev = $interno;
+                     break;
+                }
+          if($keyinfo == 'pages') {
+            
             ?>
             <h1>PAGES = <?php
-                
-                        if($rr >=1){
-                            if($rr= 'r'){
-                                echo '1';
-                                }else{
-                                    echo $rr;
-                                }
-                            
-                        }else{
-                            echo "1";
-                        }?> de 
+                        echo $pages;
+                        ?> de 
                 
                         <?php echo $interno ; ?>
             </h1>
         <?php } ?>
-        <div class=" container ">
-        <?php  if($keyinfo == 'next') {?>
-            <div class="col-sm-4"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a></div>
+       
+        <?php 
+    }
+    ?>
+    <div class=" container row justify-content-center text-center">
+            <?php  if($prev) {?>
+                <div class="col-sm-1"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $prev ?>"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
+            <?php }else{?>
+                <div class="col-sm-1"><a class="fs-3 text " aria-current="page"  href="#"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
+            <?php } ?>
+            <?php
             
-        <?php } ?>
-        <?php  if($keyinfo == 'prev') {
-            if($interno) {?>
-            <div class="col-sm-4"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $interno ?>"><?php echo $keyinfo ?></a></div>
             
-        <?php }
-    } ?>
+            ?>
+            <?php  if($next) {?>
+                <div class="col-sm-1"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $next ?>"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
+            <?php }else{?>
+                <div class="col-sm-1"><a class="fs-3 text " aria-current="page"  href="characters.php?data=<?php echo $next ?>"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
+            <?php } ?>
+            
     </div>
-    <?php }
- }
+
+    <?php
+    //armar modulo
+ }//fin if info
 } ?>
  
-    
+ <div class="row g-4 p-4"> 
 <?php 
   echo "<hr>";
 foreach($characters as $key2 => $results){
@@ -116,35 +128,34 @@ foreach($characters as $key2 => $results){
             // se recorre para todos los personajes
         // echo $keyinfo;
             foreach($results_character as $key3 => $datos){
-                
-                if($key3 == 'url'){                
-                    // echo  $datos;
-                    $url = $datos;
-                }
-                if($key3 == 'name'){                
-                       // echo  $datos;
-                        $nombre = $datos;
-                }
-                
-                    //se recorre para un solo personaje
+            //se recorre para un solo personaje
                 switch($key3){
-                    case 'image':
-                        ?>
-                        <a onclick="showCharacter('<?php echo $url ?>')">
-                    <img src="<?php echo $datos ?>" class="" id="imagen">
-                    <?php
+                    case 'url':
+                        $url = $datos;
                         break;
+                    case 'image':
+                        $ima = $datos;
+                        break;
+                    case 'name':
+                        $nombre = $datos;
+                    break;
                 }
-              //  echo json_encode($key3);
-               // echo json_encode($datos);
-                // if($key3 == 'origin'){                
-                //     foreach($datos as $datos_origin){
-                //         echo "<br>";
-                //         echo json_encode($key3." ".$datos_origin);
-                //     }
-                // }
-                
             }
+            ?>
+            <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>"></a>
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $nombre ?></h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+            
+                
+            </div>
+                
+            <?php
             
         // echo json_encode($interno);
         //echo $key2;
@@ -153,6 +164,7 @@ foreach($characters as $key2 => $results){
 } 
 
 ?>
+</div>
 </div>
 
    
