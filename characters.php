@@ -16,8 +16,7 @@ if(isset($_GET["page"])){
 }*/
 
 $characters = json_decode(file_get_contents($_GET['data']), true);
-$cadena = $_GET['data'];
-$rr = $cadena[strlen($cadena)-1];
+
 
 
 //$characters = json_decode(file_get_contents('https://rickandmortyapi.com/api/character?page=3'), true);
@@ -71,9 +70,19 @@ if($key2 == 'info' ){
         <?php  if($keyinfo == 'count') {?>
             <!--<h1>Total de personajes son <?php echo $interno  ?> </h1>-->
         <?php } ?>
-        <?php  if($keyinfo == 'pages') {?>
-            <h1>PAGES = <?php if($rr >1){
-                            echo $rr;
+        <?php  if($keyinfo == 'pages') {
+            $cadena = $_GET['data'];
+            $rr = $cadena[strlen($cadena)-1];
+            ?>
+            <h1>PAGES = <?php
+                
+                        if($rr >=1){
+                            if($rr= 'r'){
+                                echo '1';
+                                }else{
+                                    echo $rr;
+                                }
+                            
                         }else{
                             echo "1";
                         }?> de 
