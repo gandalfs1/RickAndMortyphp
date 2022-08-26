@@ -10,7 +10,9 @@ $pag_actual;
     if($cadena[strlen($cadena)-1] == 'r'){
         $pag_actual = 1;
     }else{
-        $pag_actual = $cadena[strlen($cadena)-1];
+        $components = parse_url($cadena);
+        parse_str($components['query'], $results);
+        $pag_actual = $results['page'];
     }
 ?>
     <div class="modal" id="modal">
@@ -52,18 +54,18 @@ if($key2 == 'info' ){
                 }
     }
     ?>
-    <div class=" container row justify-content-center text-center align-items-center">
+    <div class="container row justify-content-center text-center align-items-center p-2">
             <?php  if($prev) {?>
                 <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="characters.php?data=<?php echo $prev ?>"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
             <?php }else{?>
                 <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="#"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
             <?php } ?>
-            <h1 class="col-sm-1"><?php echo $pag_actual; ?></h1>
+            <h3 class="col-sm-1 bg-light  rounded-5"><?php echo $pag_actual; ?></h3>
             
             <?php  if($next) {?>
                 <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="characters.php?data=<?php echo $next ?>"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
             <?php }else{?>
-                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="characters.php?data=<?php echo $next ?>"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
+                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
             <?php } ?>
             
     </div>
@@ -75,7 +77,7 @@ if($key2 == 'info' ){
  
  <div class="row g-4 p-4"> 
 <?php 
-  echo "<hr>";
+ // echo "<hr>";
 foreach($characters as $key2 => $results){
    // echo json_encode($value);
     if($key2 == 'results' ){ 
@@ -102,8 +104,9 @@ foreach($characters as $key2 => $results){
                     <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>"></a>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $nombre ?></h5>
+                        <p></p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
                     </div>
                 </div>
             </div>
@@ -135,4 +138,6 @@ foreach($characters as $key2 => $results){
        
 
         </script>
+
+        <?php require_once('pie.php')?>
 <?php require_once('footer.php') ?>
