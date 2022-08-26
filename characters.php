@@ -75,7 +75,7 @@ if($key2 == 'info' ){
  }//fin if info
 } ?>
  
- <div class="row g-4 p-4"> 
+ <div class="row g-4 "> 
 <?php 
  // echo "<hr>";
 foreach($characters as $key2 => $results){
@@ -99,14 +99,14 @@ foreach($characters as $key2 => $results){
                 }
             }
             ?>
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card col-12" style="width: 19rem;">
                     <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>"></a>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $nombre ?></h5>
-                        <p></p>
+                    <div class="card-body bg-dark text-white">
+                        <h4 class="card-title text-center "><?php echo $nombre ?></h4>
+                        <!--<p></p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                        <a href="#" class="btn btn-primary">Go somewhere</a>-->
                     </div>
                 </div>
             </div>

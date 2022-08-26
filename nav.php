@@ -3,7 +3,7 @@
   
   <a class="navbar-brand fs-3 text" href="index.php"><span class="icon is-large">
                         <ion-icon name="home"></ion-icon>
-                    </span>home</a>
+                    </span></a>
   
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
