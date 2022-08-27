@@ -15,27 +15,27 @@ $pag_actual;
         $pag_actual = $results['page'];
     }
 ?>
-    <div class="modal" id="modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Registrar Producto</p>
-                <button class="delete" aria-label="close" onclick="closeCharacter()"></button>
-            </header>
-            <section class="modal-card-body">
+<div class="modal" id="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Registrar Producto</p>
+            <button class="delete" aria-label="close" onclick="closeCharacter()"></button>
+        </header>
+        <section class="modal-card-body">
 
-            </section>
-            <footer class="modal-card-foot">
-                <button type="submit" class="button is-success">Guardar</button>
-                </form>
-                </form>
-                </form>
-            </footer>
-        </div>
+        </section>
+        <footer class="modal-card-foot">
+            <button type="submit" class="button is-success">Guardar</button>
+            </form>
+            </form>
+            </form>
+        </footer>
     </div>
-<div class="container ">   
+</div>
+<div class="container ">
 
-<?php foreach($characters as $key2 => $value){
+    <?php foreach($characters as $key2 => $value){
 if($key2 == 'info' ){ 
     foreach($value as $keyinfo => $interno){  
         switch($keyinfo){
@@ -55,28 +55,36 @@ if($key2 == 'info' ){
     }
     ?>
     <div class="container row justify-content-center text-center align-items-center p-2">
-            <?php  if($prev) {?>
-                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="characters.php?data=<?php echo $prev ?>"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
-            <?php }else{?>
-                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="#"><ion-icon name="arrow-back-outline"></ion-icon></a></div>
-            <?php } ?>
-            <h3 class="col-sm-1 bg-light  rounded-5"><?php echo $pag_actual; ?></h3>
-            
-            <?php  if($next) {?>
-                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="characters.php?data=<?php echo $next ?>"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
-            <?php }else{?>
-                <div class="col-sm-1"><a class="fs-4 text " aria-current="page"  href="#"><ion-icon name="arrow-forward-outline"></ion-icon></a></div>
-            <?php } ?>
-            
+        <?php  if($prev) {?>
+        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $prev ?>">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </a></div>
+        <?php }else{?>
+        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="#">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+            </a></div>
+        <?php } ?>
+        <h3 class="col-sm-1 bg-light  rounded-5"><?php echo $pag_actual; ?></h3>
+
+        <?php  if($next) {?>
+        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $next ?>">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a></div>
+        <?php }else{?>
+        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="#">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </a></div>
+        <?php } ?>
+
     </div>
 
     <?php
     //armar modulo
  }//fin if info
 } ?>
- 
- <div class="row g-4 "> 
-<?php 
+
+    <div class="row g-4 ">
+        <?php 
  // echo "<hr>";
 foreach($characters as $key2 => $results){
    // echo json_encode($value);
@@ -99,45 +107,42 @@ foreach($characters as $key2 => $results){
                 }
             }
             ?>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card col-12" style="width: 19rem;">
-                    <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>"></a>
-                    <div class="card-body bg-dark text-white">
-                        <h4 class="card-title text-center "><?php echo $nombre ?></h4>
-                        <!--<p></p>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card col-12" style="width: 19rem;">
+                <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>"
+                        id="imagen" alt="<?php echo $nombre ?>"></a>
+                <div class="card-body bg-dark text-white">
+                    <h4 class="card-title text-center "><?php echo $nombre ?></h4>
+                    <!--<p></p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>-->
-                    </div>
                 </div>
             </div>
-                
-            <?php
+        </div>
+
+        <?php
         }
     }
 } 
 
 ?>
+    </div>
 </div>
-</div>
 
-   
-<script >
-       function showCharacter(nombre){
-        console.log(nombre)
-        //alert(nombre)
-        const modal = document.getElementById('modal')
-        modal.classList.toggle('is-active')
-       }
 
-       function closeCharacter(){
-        const modal = document.getElementById('modal')
-         modal.classList.toggle('is-active')
-       }
-     
+<script>
+function showCharacter(nombre) {
+    console.log(nombre)
+    //alert(nombre)
+    const modal = document.getElementById('modal')
+    modal.classList.toggle('is-active')
+}
 
-       
+function closeCharacter() {
+    const modal = document.getElementById('modal')
+    modal.classList.toggle('is-active')
+}
+</script>
 
-        </script>
-
-        <?php require_once('pie.php')?>
+<?php require_once('pie.php')?>
 <?php require_once('footer.php') ?>
