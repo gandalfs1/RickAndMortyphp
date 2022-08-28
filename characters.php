@@ -56,22 +56,22 @@ if($key2 == 'info' ){
     ?>
     <div class="container row justify-content-center text-center align-items-center p-2">
         <?php  if($prev) {?>
-        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $prev ?>">
+        <div class="col-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $prev ?>">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </a></div>
         <?php }else{?>
-        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="#">
+        <div class="col-1"><a class="fs-4 text " aria-current="page" href="#">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </a></div>
         <?php } ?>
-        <h3 class="col-sm-1 bg-light  rounded-5"><?php echo $pag_actual; ?></h3>
+        <h3 class="col-1 bg-light  rounded-5"><?php echo $pag_actual; ?></h3>
 
         <?php  if($next) {?>
-        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $next ?>">
+        <div class="col-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $next ?>">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a></div>
         <?php }else{?>
-        <div class="col-sm-1"><a class="fs-4 text " aria-current="page" href="#">
+        <div class="col-1"><a class="fs-4 text " aria-current="page" href="#">
                 <ion-icon name="arrow-forward-outline"></ion-icon>
             </a></div>
         <?php } ?>
@@ -108,9 +108,9 @@ foreach($characters as $key2 => $results){
             }
             ?>
         <div class="col-lg-3 col-sm-6">
-            <div class="card col-12" style="width: 19rem;">
-                <a class="card-img-top" onclick="showCharacter('<?php echo $url ?>')"><img src="<?php echo $ima ?>"
-                        id="imagen" alt="<?php echo $nombre ?>"></a>
+            <div class="card col-12">
+                <a class="card-img-top  text-center "  onclick="showCharacter('<?php echo $url ?>')"><img  src="<?php echo $ima ?>"
+                        id="imagen" alt="<?php echo $nombre ?>"  ></a>
                 <div class="card-body bg-dark text-white">
                     <h4 class="card-title text-center "><?php echo $nombre ?></h4>
                     <!--<p></p>
