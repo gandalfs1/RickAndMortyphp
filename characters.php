@@ -113,7 +113,7 @@ foreach($characters as $key2 => $results){
                     <img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>" >
                 </a>
                 <div class="card-body bg-dark text-white">
-                    <h4 class="card-title text-center "><?php echo $nombre ?></h4>
+                    <h5 class="card-title text-center "><?php echo $nombre ?></h5>
                     <!--<p></p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>-->
