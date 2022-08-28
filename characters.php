@@ -109,8 +109,9 @@ foreach($characters as $key2 => $results){
             ?>
         <div class="col-lg-3 col-sm-6">
             <div class="card col-12">
-                <a class="card-img-top  text-center "  onclick="showCharacter('<?php echo $url ?>')"><img  src="<?php echo $ima ?>"
-                        id="imagen" alt="<?php echo $nombre ?>"  ></a>
+                <a class="card-img-top  text-center  bg-primary" onclick="showCharacter('<?php echo $url ?>')">
+                    <img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>" style="width: 100%;">
+                </a>
                 <div class="card-body bg-dark text-white">
                     <h4 class="card-title text-center "><?php echo $nombre ?></h4>
                     <!--<p></p>
