@@ -92,8 +92,12 @@ foreach($characters as $key2 => $results){
         foreach($results as $keyinfo => $results_character){
             // se recorre para todos los personajes
         // echo $keyinfo;
+        //$zz = $results_character['origin']['name'];
+        //echo $zz;
+        /*
             foreach($results_character as $key3 => $datos){
             //se recorre para un solo personaje
+           
                 switch($key3){
                     case 'url':
                         $url = $datos;
@@ -104,25 +108,44 @@ foreach($characters as $key2 => $results){
                     case 'name':
                         $nombre = $datos;
                     break;
+                    case 'origin':
+                       /* foreach($datos as $kx => $origen) {
+                            switch($kx) {
+                                case 'name':
+                                    $name_origen = $origen;
+                                break;
+                            }
+                        }*//*
+                       // $name_origen = array_keys($datos,'origin');
+                       $name_origen = $datos['name'];
+                        //echo $name_origen;
+                        //echo 'url is '.$datos['url'];
+                    break;
                 }
-            }
+            }*/
             ?>
         <div class="col-lg-3 col-sm-6">
             <div class="card col-12" id="personaje">
                 <div class="card-img-top  text-center flip-box">
-                    <!--<a onclick="showCharacter('<?php echo $url ?>')"></a>-->
+                    <!--<a onclick="showCharacter('<?php echo $results_character['url'] ?>')"></a>-->
                     <div class="flip-box-front">
-                        <img src="<?php echo $ima ?>" id="imagen" alt="<?php echo $nombre ?>">
+                        <img src="<?php echo $results_character['image'] ?>" id="imagen"
+                            alt="<?php echo $results_character['name'] ?>">
                     </div>
                     <div class="flip-box-back">
-                        <p>lorem ipsum dolor sit amet, consectet Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. t, consequuntur inventore, veniam illum possimus sapiente voluptatibus quia assumenda
-                            sequi sunt, sint nostrum nam fuga?</p>
+                        <span>Tierra de Origen : <h5><?php echo $results_character['origin']['name']  ?></h5> </span>
+                        <span>Especie : <h5><?php echo $results_character['species'] ?></h5> </span>
+                        <?php  if( $results_character['type']){ ?><span>Tipo : <h5>
+                                <?php echo $results_character['type'];?></h5> </span><?php }?>
+                        <span>Genero : <h5><?php echo $results_character['gender']  ?></h5> </span>
+                        <span>Cantidad de acapitulos : <h5><?php echo count($results_character['episode'])?></h5>
+                        </span>
+
                     </div>
                 </div>
 
                 <div class="card-body bg-dark text-white" id="nombre">
-                    <h5 class="card-title text-center "><?php echo $nombre ?></h5>
+                    <h5 class="card-title text-center "><?php echo $results_character['name'];?></h5>
                     <!--<p></p>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>-->

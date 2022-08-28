@@ -74,13 +74,17 @@
 }
 
 .flip-box-back {
+   position: absolute; 
   position: absolute;
+   position: absolute; 
+  display: inline;
+  width: 100%;
   top: 0;
   left: 0;
   transform: rotateY(180deg);
   transform-style: preserve-3d;
-  background-color: rgba(79, 79, 79, 0.592);
-  height: 100%;
+  
+
 }
 
 .flip-box:hover .flip-box-back {
