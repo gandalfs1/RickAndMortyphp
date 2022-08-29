@@ -12,8 +12,16 @@ require_once('nav.php');
 <?php 
 $locations = json_decode(file_get_contents($_GET['data']), true);
 //echo json_encode($locations);
-$prev = 'locations.php?data='.$locations['info']['prev'];
-$next = 'locations.php?data='.$locations['info']['next'];
+if(isset($locations['info']['prev'])){
+    $prev = 'locations.php?data='.$locations['info']['prev'];
+}else{
+    $prev = '#';
+}
+if(isset($locations['info']['next'])){
+    $next = 'locations.php?data='.$locations['info']['next'];
+}else{
+    $next = '#';
+}
 
 $cadena_locations = $_GET['data'];
 $pag_actual;

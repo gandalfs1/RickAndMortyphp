@@ -46,10 +46,19 @@ if($key2 == 'info' ){
                         $pages = $interno;
                      break;
                     case 'next':
-                        $next = 'characters.php?data='.$interno;
+                        if(isset($interno)){
+                            $next = 'characters.php?data='.$interno;
+                        }else{
+                            $next = '#';
+                        }
                     break;
                     case 'prev':
-                        $prev = 'characters.php?data='.$interno;
+                       
+                        if(isset($interno)){
+                            $prev = 'characters.php?data='.$interno;
+                        }else{
+                            $prev = '#';
+                        }
                      break;
                 }
     }
