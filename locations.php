@@ -36,17 +36,17 @@ $pag_actual;
 ?>
 
 <?php require_once('nav_pages.php')?>
-    <div class="container">
-<?php 
+<div class="container">
+    <?php 
     foreach($locations['results'] as $location){
         ?>
-        <div class="container">
-            <li>Nombre: <?php echo $location['name'] ?></li>
-            <li>Tipo: <?php echo $location['type'] ?></li>
-            <li>Dimension: <?php echo $location['dimension'] ?></li>
-            <li>Cantida residentes: <?php echo count($location['residents']) ?></li>
-        </div>
-<?php
+    <div class="container  ">
+        <li>Nombre: <?php echo $location['name'] ?></li>
+        <li>Tipo: <?php echo $location['type'] ?></li>
+        <li>Dimension: <?php echo $location['dimension'] ?></li>
+        <li>Cantida residentes: <?php echo count($location['residents']) ?></li>
+    </div>
+    <?php
        // echo "id ".$location['id'];
         echo "<hr>";
     }
