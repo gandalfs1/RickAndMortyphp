@@ -12,45 +12,22 @@ require_once('nav.php');
 <?php 
 $locations = json_decode(file_get_contents($_GET['data']), true);
 //echo json_encode($locations);
-$prev_locations = $locations['info']['prev'];
-$next_locations = $locations['info']['next'];
+$prev = 'locations.php?data='.$locations['info']['prev'];
+$next = 'locations.php?data='.$locations['info']['next'];
 
 $cadena_locations = $_GET['data'];
-$pag_actual_locations;
+$pag_actual;
 
     if($cadena_locations[strlen($cadena_locations)-1] == 'n'){
-        $pag_actual_locations = 1;
+        $pag_actual = 1;
     }else{
         $components_locations = parse_url($cadena_locations);
         parse_str($components_locations['query'], $results_locations);
-        $pag_actual_locations = $results_locations['page'];
+        $pag_actual = $results_locations['page'];
     }
 ?>
 
-<div class="container">
-    <div class="container row justify-content-center text-center align-items-center p-2">
-        <?php  if($prev_locations) {?>
-        <div class="col-1"><a class="fs-4 text " aria-current="page" href="locations.php?data=<?php echo $prev_locations ?>">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </a></div>
-        <?php }else{?>
-        <div class="col-1"><a class="fs-4 text " aria-current="page" href="#">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </a></div>
-        <?php } ?>
-        <h3 class="col-1 bg-light  rounded-5"><?php echo $pag_actual_locations; ?></h3>
-
-        <?php  if($next_locations) {?>
-        <div class="col-1"><a class="fs-4 text " aria-current="page" href="locations.php?data=<?php echo $next_locations ?>">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-            </a></div>
-        <?php }else{?>
-        <div class="col-1"><a class="fs-4 text " aria-current="page" href="#">
-                <ion-icon name="arrow-forward-outline"></ion-icon>
-            </a></div>
-        <?php } ?>
-    </div>
-</div>
+<?php require_once('nav_pages.php')?>
 
 <?php 
     foreach($locations['results'] as $location){

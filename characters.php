@@ -46,15 +46,15 @@ if($key2 == 'info' ){
                         $pages = $interno;
                      break;
                     case 'next':
-                        $next = $interno;
+                        $next = 'characters.php?data='.$interno;
                     break;
                     case 'prev':
-                        $prev = $interno;
+                        $prev = 'characters.php?data='.$interno;
                      break;
                 }
     }
     ?>
-    <div class="container row justify-content-center text-center align-items-center p-2">
+    <!-- <div class="container row justify-content-center text-center align-items-center p-2">
         <?php  if($prev) {?>
         <div class="col-1"><a class="fs-4 text " aria-current="page" href="characters.php?data=<?php echo $prev ?>">
                 <ion-icon name="arrow-back-outline"></ion-icon>
@@ -76,8 +76,8 @@ if($key2 == 'info' ){
             </a></div>
         <?php } ?>
 
-    </div>
-
+    </div> -->
+    <?php require_once('nav_pages.php')?>
     <?php
     //armar modulo
  }//fin if info
