@@ -36,10 +36,9 @@ $pag_actual;
 ?>
 
 <?php require_once('nav_pages.php')?>
-
+    <div class="container">
 <?php 
     foreach($locations['results'] as $location){
-        echo "<hr>";
         ?>
         <div class="container">
             <li>Nombre: <?php echo $location['name'] ?></li>
@@ -52,4 +51,6 @@ $pag_actual;
         echo "<hr>";
     }
 ?>
+</div>
+<?php require_once('pie.php')?>
 <?php require_once('footer.php') ?>

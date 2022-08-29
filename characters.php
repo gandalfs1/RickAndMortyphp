@@ -15,25 +15,8 @@ $pag_actual;
         $pag_actual = $results['page'];
     }
 ?>
-<div class="modal" id="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">Registrar Producto</p>
-            <button class="delete" aria-label="close" onclick="closeCharacter()"></button>
-        </header>
-        <section class="modal-card-body">
+<br>
 
-        </section>
-        <footer class="modal-card-foot">
-            <button type="submit" class="button is-success">Guardar</button>
-            </form>
-            </form>
-            </form>
-        </footer>
-    </div>
-</div>
-<div class="container ">
 
     <?php foreach($characters as $key2 => $value){
 if($key2 == 'info' ){ 
@@ -91,7 +74,7 @@ if($key2 == 'info' ){
     //armar modulo
  }//fin if info
 } ?>
-
+<div class="container ">
     <div class="row g-4 ">
         <?php 
  // echo "<hr>";
