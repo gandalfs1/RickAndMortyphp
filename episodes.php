@@ -2,12 +2,12 @@
 require_once('head.php');
 require_once('nav.php');
 
-if(isset($_GET['data'])){
-    echo "lego GET ".$_GET['data'];
-}else{
-    echo "no llego GET";
-}
-?>
+// if(isset($_GET['data'])){
+//     echo "lego GET ".$_GET['data'];
+// }else{
+//     echo "no llego GET";
+// }
+// ?>
 <br>
 <?php 
 $episodes = json_decode(file_get_contents($_GET['data']), true);
@@ -24,7 +24,7 @@ if(isset($episodes['info']['next'])){
     $next = '#';
 }
 
-echo json_encode($next);
+    //echo json_encode($next);
 $cadena_episodes = $_GET['data'];
 $pag_actual;
 
@@ -39,19 +39,37 @@ $pag_actual;
 
 <?php require_once('nav_pages.php')?>
 
-<?php 
+<div class="container">
+    <table class="table table-responsive">
+        <thead class="bg-dark">
+            <tr>
+                <th scope="col" class="text-light">Episodio</th>
+                <th scope="col" class="text-light">Nombre</th>
+                <th scope="col" class="text-light">Estreno</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <?php 
     foreach($episodes['results'] as $location){
-        echo "<hr>";
+       // echo "<hr>";
         ?>
-        <div class="container">
-            <li>Nombre: <?php echo $location['name'] ?></li>
-            <li>Estreno: <?php echo $location['air_date'] ?></li>
-            <li>Episodio: <?php echo $location['episode'] ?></li>
-            <li>Cantida personajes: <?php echo count($location['characters']) ?></li>
-        </div>
-<?php
+            <tr>
+                <th scope="row"><?php echo $location['episode'] ?></th>
+                <td><?php echo $location['name'] ?></td>
+                <td><?php echo $location['air_date'] ?></td>
+            </tr>
+
+            <?php
        // echo "id ".$location['id'];
-        echo "<hr>";
+       // echo "<hr>";
     }
+    
 ?>
+
+        </tbody>
+
+    </table>
+</div>
+<?php require_once('pie.php')?>
 <?php require_once('footer.php') ?>
