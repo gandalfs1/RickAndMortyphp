@@ -5,7 +5,7 @@
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </a></div>
        
-        <h3 class="col-1  rounded-5"><?php echo $pag_actual; ?></h3>
+        <h3 class="col text-center  rounded-5"><?php echo $pag_actual; ?></h3>
 
         
         <div class="col-1"><a class="fs-4 text " aria-current="page" href="<?php echo $next ?>">
