@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background: #000;">
+    <div class="container-fluid ">
         <a class="navbar-brand fs-3 text" href="index.php"><span class="icon is-large">
                 <ion-icon name="home"></ion-icon>
             </span></a>
